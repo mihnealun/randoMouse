@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "RandoMouse",
+  "version": "1.0",
+  "description": "Simulate mouse movements within web pages",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "RandoMouse"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

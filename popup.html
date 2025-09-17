@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 200px;
+      padding: 1px;
+      font-family: Arial, sans-serif;
+    }
+    .section {
+      margin: 1px;
+      padding: 2px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .section h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    button {
+      background: #2a47d3;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 6px;
+    }
+    button:hover {
+      background: #19b837;
+    }
+    button:disabled {
+      background: #8e8c8c;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h3>Mouse Movement</h3>
+    <button id="startMovement">Start</button>
+    <button id="stopMovement">Stop</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
