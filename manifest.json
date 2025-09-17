@@ -4,8 +4,7 @@
   "version": "1.0",
   "description": "Simulate mouse movements within web pages",
   "permissions": [
-    "activeTab",
-    "scripting"
+    "activeTab"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -18,6 +17,12 @@
     }
   ],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "rando-mouse@coding.ro",
+      "strict_min_version": "109.0"
+    }
   }
 }

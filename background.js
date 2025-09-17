@@ -1,25 +1,18 @@
 // Background script for mouse simulator extension
 
+// Use a namespace that works in Firefox and Chrome
+const api = typeof browser !== 'undefined' ? browser : chrome;
+
 // Handle extension installation
-chrome.runtime.onInstalled.addListener(() => {
+api.runtime.onInstalled.addListener(() => {
   console.log('Mouse Random extension installed');
 });
 
 // Handle messages from popup or content scripts
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+api.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // Handle any background processing if needed
   return true;
 });
 
-// Handle tab updates to ensure content script is injected
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.url) {
-    // Inject content script if not already injected
-    chrome.scripting.executeScript({
-      target: { tabId: tabId },
-      files: ['content.js']
-    }).catch(() => {
-      // Script already injected or injection failed
-    });
-  }
-});
+// Removed dynamic injection via chrome.scripting (Chromium-only). Firefox loads content.js
+// automatically from the manifest "content_scripts".
